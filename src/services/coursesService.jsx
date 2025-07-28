@@ -63,7 +63,6 @@ const courseService = {
     try {
       const response = await axios.get(`${API_ROUTES.getCourses}?page=${page}`);
       console.log("رد الـ API:", response.data);
-      // return response.data?.data || response.data;
       return response.data;
     } catch (error) {
       console.error("فشل استدعاء الدورات:", error);
