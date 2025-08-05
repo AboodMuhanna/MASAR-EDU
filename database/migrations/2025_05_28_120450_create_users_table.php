@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable(); // <- عدلنا هنا ليصير اختياري
             $table->string('email')->unique();
             $table->enum('gender', ['male', 'female']);
             $table->string('password');
             $table->foreignId('faculty_department_id')->constrained()->onDelete('cascade');
+
+            $table->string('api_token', 80)->unique()->nullable(); // العمود موجود كما هو
+
             $table->rememberToken();
             $table->timestamps();
         });
-
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

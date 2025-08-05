@@ -22,7 +22,7 @@ class ContactFormController extends Controller
             'email' => 'required|email',
             'message_title' => 'required|string',
             'message' => 'required|string',
-            'faculty_department_id' => 'required|exists:faculty_departments,id',
+            'faculty_department_id' => 'nullable|exists:faculty_departments,id',
         ]);
 
         return response()->json(

@@ -13,8 +13,8 @@ class CreateContactFormsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
-            $table->unsignedBigInteger('faculty_department_id');
-            $table->foreign('faculty_department_id')->references('id')->on('faculty_departments')->onDelete('cascade');
+            $table->unsignedBigInteger('faculty_department_id')->nullable();
+            $table->foreign('faculty_department_id')->references('id')->on('faculty_departments')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
